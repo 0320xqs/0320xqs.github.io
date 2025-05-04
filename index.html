@@ -1,1 +1,23 @@
-123.5786384ac604c55829a36f9c1b8e3a81.Ynee41xJ5-tLTowWYHNz-cD1SFo6ZF3qhy8vdBp.92DIFw
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF预览</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.17.1/pdf.min.js"></script>
+</head>
+<body>
+    <canvas id="pdf-canvas"></canvas>
+    <script>
+        const pdfUrl = 'https://gitee.com/xqs0320_0/pdf-preview/raw/master/8.15t.pdf';
+        PDFJS.getDocument(pdfUrl).then(pdf => {
+            pdf.getPage(1).then(page => {
+                const canvas = document.getElementById('pdf-canvas');
+                const context = canvas.getContext('2d');
+                const viewport = page.getViewport({ scale: 1.5 });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                page.render({ canvasContext: context, viewport: viewport });
+            });
+        });
+    </script>
+</body>
+</html>

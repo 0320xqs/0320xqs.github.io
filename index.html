@@ -40,7 +40,7 @@
     <script>
         const pdfUrl = 'https://gitee.com/xqs0320_0/pdf-preview/raw/master/8.15t.pdf';
         const pdfjsLib = window['pdfjs-dist/build/pdf'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.17.1/pdf.worker.min.js';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.0.375/pdf.min.mjs';
 
         const loadingTask = pdfjsLib.getDocument(pdfUrl);
         loadingTask.promise.then(function (pdf) {
